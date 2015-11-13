@@ -1,0 +1,808 @@
+<!DOCTYPE html><html>
+
+<head>
+<meta charset="utf-8">
+<title>README</title>
+<style type="text/css">
+body {
+  font-family: Helvetica, arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: white;
+  padding: 30px; }
+
+body > *:first-child {
+  margin-top: 0 !important; }
+body > *:last-child {
+  margin-bottom: 0 !important; }
+
+a {
+  color: #4183C4; }
+a.absent {
+  color: #cc0000; }
+a.anchor {
+  display: block;
+  padding-left: 30px;
+  margin-left: -30px;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0; }
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+  cursor: text;
+  position: relative; }
+
+h1:hover a.anchor, h2:hover a.anchor, h3:hover a.anchor, h4:hover a.anchor, h5:hover a.anchor, h6:hover a.anchor {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA09pVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoMTMuMCAyMDEyMDMwNS5tLjQxNSAyMDEyLzAzLzA1OjIxOjAwOjAwKSAgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OUM2NjlDQjI4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OUM2NjlDQjM4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo5QzY2OUNCMDg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo5QzY2OUNCMTg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PsQhXeAAAABfSURBVHjaYvz//z8DJYCRUgMYQAbAMBQIAvEqkBQWXI6sHqwHiwG70TTBxGaiWwjCTGgOUgJiF1J8wMRAIUA34B4Q76HUBelAfJYSA0CuMIEaRP8wGIkGMA54bgQIMACAmkXJi0hKJQAAAABJRU5ErkJggg==) no-repeat 10px center;
+  text-decoration: none; }
+
+h1 tt, h1 code {
+  font-size: inherit; }
+
+h2 tt, h2 code {
+  font-size: inherit; }
+
+h3 tt, h3 code {
+  font-size: inherit; }
+
+h4 tt, h4 code {
+  font-size: inherit; }
+
+h5 tt, h5 code {
+  font-size: inherit; }
+
+h6 tt, h6 code {
+  font-size: inherit; }
+
+h1 {
+  font-size: 28px;
+  color: black; }
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #cccccc;
+  color: black; }
+
+h3 {
+  font-size: 18px; }
+
+h4 {
+  font-size: 16px; }
+
+h5 {
+  font-size: 14px; }
+
+h6 {
+  color: #777777;
+  font-size: 14px; }
+
+p, blockquote, ul, ol, dl, li, table, pre {
+  margin: 15px 0; }
+
+hr {
+  background: transparent url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAECAYAAACtBE5DAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OENDRjNBN0E2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OENDRjNBN0I2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo4Q0NGM0E3ODY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4Q0NGM0E3OTY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PqqezsUAAAAfSURBVHjaYmRABcYwBiM2QSA4y4hNEKYDQxAEAAIMAHNGAzhkPOlYAAAAAElFTkSuQmCC) repeat-x 0 0;
+  border: 0 none;
+  color: #cccccc;
+  height: 4px;
+  padding: 0;
+}
+
+body > h2:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+body > h1:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+  body > h1:first-child + h2 {
+    margin-top: 0;
+    padding-top: 0; }
+body > h3:first-child, body > h4:first-child, body > h5:first-child, body > h6:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0; }
+
+h1 p, h2 p, h3 p, h4 p, h5 p, h6 p {
+  margin-top: 0; }
+
+li p.first {
+  display: inline-block; }
+li {
+  margin: 0; }
+ul, ol {
+  padding-left: 30px; }
+
+ul :first-child, ol :first-child {
+  margin-top: 0; }
+
+dl {
+  padding: 0; }
+  dl dt {
+    font-size: 14px;
+    font-weight: bold;
+    font-style: italic;
+    padding: 0;
+    margin: 15px 0 5px; }
+    dl dt:first-child {
+      padding: 0; }
+    dl dt > :first-child {
+      margin-top: 0; }
+    dl dt > :last-child {
+      margin-bottom: 0; }
+  dl dd {
+    margin: 0 0 15px;
+    padding: 0 15px; }
+    dl dd > :first-child {
+      margin-top: 0; }
+    dl dd > :last-child {
+      margin-bottom: 0; }
+
+blockquote {
+  border-left: 4px solid #dddddd;
+  padding: 0 15px;
+  color: #777777; }
+  blockquote > :first-child {
+    margin-top: 0; }
+  blockquote > :last-child {
+    margin-bottom: 0; }
+
+table {
+  padding: 0;border-collapse: collapse; }
+  table tr {
+    border-top: 1px solid #cccccc;
+    background-color: white;
+    margin: 0;
+    padding: 0; }
+    table tr:nth-child(2n) {
+      background-color: #f8f8f8; }
+    table tr th {
+      font-weight: bold;
+      border: 1px solid #cccccc;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr td {
+      border: 1px solid #cccccc;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr th :first-child, table tr td :first-child {
+      margin-top: 0; }
+    table tr th :last-child, table tr td :last-child {
+      margin-bottom: 0; }
+
+img {
+  max-width: 100%; }
+
+span.frame {
+  display: block;
+  overflow: hidden; }
+  span.frame > span {
+    border: 1px solid #dddddd;
+    display: block;
+    float: left;
+    overflow: hidden;
+    margin: 13px 0 0;
+    padding: 7px;
+    width: auto; }
+  span.frame span img {
+    display: block;
+    float: left; }
+  span.frame span span {
+    clear: both;
+    color: #333333;
+    display: block;
+    padding: 5px 0 0; }
+span.align-center {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-center > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: center; }
+  span.align-center span img {
+    margin: 0 auto;
+    text-align: center; }
+span.align-right {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px 0 0;
+    text-align: right; }
+  span.align-right span img {
+    margin: 0;
+    text-align: right; }
+span.float-left {
+  display: block;
+  margin-right: 13px;
+  overflow: hidden;
+  float: left; }
+  span.float-left span {
+    margin: 13px 0 0; }
+span.float-right {
+  display: block;
+  margin-left: 13px;
+  overflow: hidden;
+  float: right; }
+  span.float-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: right; }
+
+code, tt {
+  margin: 0 2px;
+  padding: 0 5px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px; }
+
+pre code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent; }
+
+.highlight pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+  pre code, pre tt {
+    background-color: transparent;
+    border: none; }
+
+sup {
+    font-size: 0.83em;
+    vertical-align: super;
+    line-height: 0;
+}
+* {
+	-webkit-print-color-adjust: exact;
+}
+@media screen and (min-width: 914px) {
+    body {
+        width: 854px;
+        margin:0 auto;
+    }
+}
+@media print {
+	table, pre {
+		page-break-inside: avoid;
+	}
+	pre {
+		word-wrap: break-word;
+	}
+}
+</style>
+</head>
+<body>
+<h1 id="toc_0">Drilling into data with Drill</h1>
+
+<h3 id="toc_1">Prerequisites:</h3>
+
+<ul>
+<li>Java 7 or newer</li>
+<li>Download and unzip <a href="http://drill.apache.org">Apache Drill</a></li>
+<li><a href="https://www.mongodb.org/downloads">MongoDB 3.x</a></li>
+<li>Unzip the data.zip (from this repository)</li>
+</ul>
+
+<h2 id="toc_2">Drilling!</h2>
+
+<h4 id="toc_3">Start Apache Drill</h4>
+
+<p>In this lab you will use Apache Drill in a stand alone mode.</p>
+
+<p>Let&#39;s call the directory where you have unzipped Apache Drill <code>$DRILL_HOME</code></p>
+
+<pre><code>cd $DRILL_HOME
+
+# Linux/OSX
+bin/drill-embedded
+
+# Windows
+bin/sqlline -u jdbc:drill:zk=local
+</code></pre>
+
+<p>You can now execute a simple query:</p>
+
+<pre><code>SELECT * FROM cp.`employee.json` LIMIT 20;
+
++--------------+------------------+-------------+------------+--------------+---------------------+-----------+----------------+-------------+------------------------+----------+----------------+------------------+-----------------+---------+--------------------+
+| employee_id  |    full_name     | first_name  | last_name  | position_id  |   position_title    | store_id  | department_id  | birth_date  |       hire_date        |  salary  | supervisor_id  | education_level  | marital_status  | gender  |  management_role   |
++--------------+------------------+-------------+------------+--------------+---------------------+-----------+----------------+-------------+------------------------+----------+----------------+------------------+-----------------+---------+--------------------+
+| 1            | Sheri Nowmer     | Sheri       | Nowmer     | 1            | President           | 0         | 1              | 1961-08-26  | 1994-12-01 00:00:00.0  | 80000.0  | 0              | Graduate Degree  | S               | F       | Senior Management  |
+| 2            | Derrick Whelply  | Derrick     | Whelply    | 2            | VP Country Manager  | 0         | 1              | 1915-07-03  | 1994-12-01 00:00:00.0  | 40000.0  | 1              | Graduate Degree  | M               | M       | Senior Management  |
+| 4            | Michael Spence   | Michael     | Spence     | 2            | VP Country Manager  | 0         | 1              | 1969-06-20  | 1998-01-01 00:00:00.0  | 40000.0  | 1              | Graduate Degree  | S               | M       | Senior Management  |
+...
+...</code></pre>
+
+<p>You can select the output format of the shell using:</p>
+
+<pre><code>!set outputFormat csv
+
+SELECT * FROM cp.`employee.json` LIMIT 20;
+
+
+!set outputFormat vertical
+
+SELECT * FROM cp.`employee.json` LIMIT 20;
+
+
+!set outputFormat table
+
+SELECT * FROM cp.`employee.json` LIMIT 20;
+
+</code></pre>
+
+<p>You can find more information abou the shell <a href="https://drill.apache.org/docs/configuring-the-drill-shell/">here</a>.</p>
+
+<h4 id="toc_4">Apache Drill Web UI</h4>
+
+<p>You can also use the Drill Web Interface to run queries. Go to:</p>
+
+<ul>
+<li><a href="http://localhost:8047">http://localhost:8047</a></li>
+</ul>
+
+<p>Go in the Query tab and run another query. (<code>SELECT * FROM cp.`employee.json` LIMIT 20</code>)</p>
+
+<h3 id="toc_5">Configure &quot;Storages&quot;</h3>
+
+<p>Drill allows you to query many datasources: simple file system, distributed file system like HDFS or MapR-FS, cloud storage Amazon S3/Azure but also databases (NoSQL &amp; RDBMS).</p>
+
+<p>Let&#39;s create a new workspace to the directory where you have saved the dataset.</p>
+
+<ol>
+<li>In the Web UI, go in the <strong>Storage</strong> tab</li>
+<li>Click in the <strong>Update</strong> button for the <strong>dfs</strong> plugin. The dfs plugin is the &quot;file system/distributed file system one</li>
+<li>In the list of workspaces, add one entry to point to the directory where you &quot;datasets&quot; have been saved:</li>
+</ol>
+
+<pre><code>    &quot;reviews&quot;: {
+      &quot;location&quot;: &quot;/Users/tgrall/data/reviews&quot;,
+      &quot;writable&quot;: true,
+      &quot;defaultInputFormat&quot;: null
+    },
+    &quot;data&quot;: {
+      &quot;location&quot;: &quot;/Users/tgrall/data/&quot;,
+      &quot;writable&quot;: true,
+      &quot;defaultInputFormat&quot;: null
+    }</code></pre>
+
+<ol>
+<li>Click the <strong>Update</strong> button</li>
+</ol>
+
+<p>You can now use the review workspace into your query for example:</p>
+
+<pre><code>SELECT count(1) AS businesses
+  FROM dfs.reviews.`business.json`</code></pre>
+
+<p>or</p>
+
+<pre><code>SELECT count(1)
+  FROM dfs.data.`airport/*.csv`</code></pre>
+
+<h3 id="toc_6">Discover Drill</h3>
+
+<p>Apache Drill is an ANSI SQL compliant engine, allowing you to write any type of queries: simple queries, join, aggregation functions, windowing function, ...</p>
+
+<p>See below some examples:</p>
+
+<ul>
+<li>Find reviews of Leslie, and print the business name, text review and rating </li>
+</ul>
+
+<pre><code>SELECT b.name `business`,  r.review_text, r.rating
+FROM dfs.reviews.`review.json` r,
+     dfs.reviews.`business.json` b,
+     dfs.reviews.`user.json` u
+WHERE b.business_id = r.business_id
+AND r.user_id = u.user_id
+AND u.name = &#39;Leslie&#39;
+ORDER BY b.name</code></pre>
+
+<ul>
+<li>The business data contains a rating, print the number of businesses for each rating value.</li>
+</ul>
+
+<pre><code>SELECT rating, count(1) `nb`
+FROM dfs.reviews.`business.json` 
+GROUP BY rating
+ORDER BY rating</code></pre>
+
+<ul>
+<li>Print only the rating that have more than 30000 businesses</li>
+</ul>
+
+<pre><code>
+SELECT rating, count(1) `nb`
+FROM dfs.reviews.`business.json` 
+GROUP BY rating
+HAVING count(1) &gt; 30000
+ORDER BY rating</code></pre>
+
+<h3 id="toc_7">Query complex Data</h3>
+
+<p>Now you will learn how to query and use complex data structures of your JSON documents.</p>
+
+<p>JSON document are rich structures, for example in the business documents you have:</p>
+
+<ul>
+<li>location: is a sub document</li>
+<li>categories: a list of values (simple string)</li>
+</ul>
+
+<h5 id="toc_8">Sub Documents</h5>
+
+<p>To print the <code>zip</code> and <code>state</code> information from the business location you have to use the <em>dot</em> notation, see below</p>
+
+<pre><code>SELECT b.name, b.location.zip `zip`, b.location.state `state`
+FROM dfs.reviews.`business.json` b
+LIMIT 10</code></pre>
+
+<p>Note: when using the <em>dot</em> notation, like <code>b.location.state</code>, Drill considers the first element as the table name, this is why you should add an alias.</p>
+
+<h5 id="toc_9">Arrays/Lists</h5>
+
+<p>When you have to work with lists, for example categories in business, you must <strong>flatten</strong> the data, to get one row for each category.</p>
+
+<pre><code>SELECT name, flatten(categories) category
+FROM dfs.reviews.`business.json` 
+LIMIT 10</code></pre>
+
+<p><strong>Questions</strong></p>
+
+<ul>
+<li><p>Q1- How many businesses in <code>MO</code> state ?</p></li>
+<li><p>Q2- Count the number of business by state, sorted by the state that has the most businesses ?</p></li>
+<li><p>Q3- Top 5 categories order starting from the most common one <em>(tip: you have to use the <code>flatten</code> function)</em></p></li>
+</ul>
+
+<p><strong>Solutions</strong></p>
+
+<blockquote>
+<ul>
+<li>Solution 1</li>
+</ul>
+
+<pre><code>SELECT count(1) 
+FROM dfs.reviews.`business.json` b
+WHERE b.location.state = &#39;MO&#39;</code></pre>
+
+<ul>
+<li>Solution 2</li>
+</ul>
+
+<pre><code>SELECT b.location.state `state`, count(1) `total`
+FROM dfs.reviews.`business.json`  b
+GROUP BY b.location.state
+ORDER BY `total` DESC</code></pre>
+
+<ul>
+<li>Solution 3</li>
+</ul>
+
+<pre><code>SELECT category, count(1) `nb_business`
+FROM (
+  SELECT name, flatten(categories) category
+  FROM dfs.reviews.`business.json` 
+)
+GROUP BY category
+ORDER BY `nb_business`
+LIMIT 5</code></pre>
+</blockquote>
+
+<h3 id="toc_10">Use multiple datasources</h3>
+
+<p>In this lab you will use MongoDB to store data and execute SQL queries that join file system and MongoDB data.</p>
+
+<p>Let&#39;s call <code>$MONGO_HOME</code> the directory where Mongo is installed.</p>
+
+<h4 id="toc_11">Start Mongo &amp; Insert Data</h4>
+
+<p>1- Start MongoDB, from a terminal</p>
+
+<pre><code>cd $MONGO_HOME
+
+mkdir data_to_delete
+
+./bin/mongod --dbpath ./data_to_delete
+</code></pre>
+
+<p>2- Import user data into MongoDB</p>
+
+<p>In a new terminal window:</p>
+
+<pre><code>./bin/mongoimport  -d drill -c users ~/data/reviews/user.json</code></pre>
+
+<p>User data are inserted into the <code>drill</code> database and <code>users</code> collection.</p>
+
+<h4 id="toc_12">Enable MongoDB Storage Plugin</h4>
+
+<ol>
+<li>In the Web UI, go in the <strong>Storage</strong> tab</li>
+<li>Click in the <strong>Update</strong> button for the <strong>mongo</strong> plugin.</li>
+</ol>
+
+<h3 id="toc_13">Query MongoDB from Drill</h3>
+
+<p>You have now the workspace <code>mongo</code> that you can use in your queries.</p>
+
+<p>For example to count the number of users:</p>
+
+<pre><code>select count(1) from mongo.drill.users</code></pre>
+
+<h3 id="toc_14">Join multiple datasources</h3>
+
+<p>Q1: Count the number of review per user, show the 10 most active users.</p>
+
+<p>Answer 1:</p>
+
+<pre><code>SELECT r.user_id, u.name, count(1) `nb_reviews`
+FROM dfs.reviews.`review.json` r,
+     mongo.drill.users u
+WHERE u.user_id = r.user_id     
+GROUP BY r.user_id, u.name
+ORDER BY `nb_reviews` DESC
+LIMIT 10 </code></pre>
+
+<h3 id="toc_15">Use view and materialized view</h3>
+
+<p>You can use views to protect sensitive data, for data aggregation, and to hide data complexity from users. </p>
+
+<p>1- Create a view that exposes business id, name and categories</p>
+
+<pre><code>CREATE OR REPLACE VIEW dfs.tmp.`business_category` as
+  SELECT business_id, name, flatten(categories) category
+  FROM dfs.reviews.`business.json` 
+</code></pre>
+
+<p>2- Use the view to find all bars (category equals &#39;BAR&#39;)</p>
+
+<pre><code>SELECT *
+FROM dfs.tmp.`business_category`
+WHERE category = &#39;Bar&#39;
+LIMIT 10</code></pre>
+
+<p>View does not store any data, it is storing the query and executes the query each time you call the view.</p>
+
+<h4 id="toc_16">Materialized View (Table)</h4>
+
+<p>Apache Drill allows you to create &#39;table&#39; from a query. In this case the result of the query will be saved in <em>new files</em>. By default the new table will be saved as Parquet files (optimized compressed, columnar oriented format), but it is also possible to save the data as JSON or CSV file.</p>
+
+<p>For example, reviews is a large dataset, and we want to improve query performance. Using a <code>create table as</code> command and Parquet format query execution will be faster.</p>
+
+<p>1- Create Table, as parquet file</p>
+
+<pre><code>CREATE TABLE dfs.tmp.`review_table`
+ AS SELECT * FROM dfs.reviews.`review.json`</code></pre>
+
+<p>2- Use the Table</p>
+
+<pre><code>SELECT user_id, count(1) `nb`
+FROM dfs.tmp.`review_table`
+GROUP BY user_id
+ORDER BY count(1) DESC
+LIMIT 10</code></pre>
+
+<h4 id="toc_17">Views/Table Considerations</h4>
+
+<p>Views and Tables help people to reuse complex queries. When you create a view or a table you also define a &quot;schema&quot; ( the projection ), this is useful when you are working with JDBC/ODBC tools that will consume this data.</p>
+
+<p>Creating a view is often the first step you have to do to expose Drill to 3rd party tools that need schemas.</p>
+
+<p>This is also how you can secure data access controling who can access a specific objects.</p>
+
+<h4 id="toc_18">Listing objects</h4>
+
+<p>You can look at the views/and table using the following commands in sqlline/terminal:</p>
+
+<pre><code>show schemas;
+
+use dfs.tmp;
+
+show tables;
+</code></pre>
+
+<p>You can also use the command:</p>
+
+<pre><code>!tables</code></pre>
+
+<h3 id="toc_19">Custom Function (UDF)</h3>
+
+<p>Apache Drill has a rich set of function; however you may need for your project very specific business logic. For this you can develop your own function.</p>
+
+<p>For example, you many need to mask some data when returning them to the user. Drill does not have this function, but you can create it, as documented <a href="https://drill.apache.org/docs/tutorial-develop-a-simple-function/">here</a>.</p>
+
+<p>For this lab you do not have to create it, since it is packaged in the student kit.</p>
+
+<h4 id="toc_20">Deploy the function</h4>
+
+<p>Copy the JARs files located in your zip file (<code>/udf/*.jar</code>) into:</p>
+
+<ol>
+<li><code>$DRILL_HOME/jars/3rdparty/</code> </li>
+<li>Restart Drill (type <code>!quit</code> in the Drill shell/sqlline to stop it)</li>
+</ol>
+
+<h4 id="toc_21">Use the function in your queries</h4>
+
+<p>The function is now deployed and you can use in your queries, for example:</p>
+
+<pre><code>SELECT MASK(first_name, &#39;*&#39;, 3) first_name , 
+           MASK(last_name, &#39;#&#39;, 10) last_name
+FROM cp.`employee.json` LIMIT 2;</code></pre>
+
+<p>You can now use this into views to hide data, for example:</p>
+
+<pre><code>CREATE OR REPLACE VIEW dfs.tmp.`masked_emp` AS
+    SELECT MASK(first_name, &#39;*&#39;, 3) first_name , 
+           MASK(last_name, &#39;#&#39;, 10) last_name,
+           salary
+   FROM cp.`employee.json`</code></pre>
+
+<p>And use it:</p>
+
+<pre><code>SELECT *
+FROM dfs.tmp.`masked_emp`
+WHERE first = &#39;Sheri&#39;</code></pre>
+
+<h4 id="toc_22">Identify Your Data Breach with Apache Drill</h4>
+
+<p>In this article and sample code you will see how you can use custom function to:</p>
+
+<ul>
+<li><a href="https://www.mapr.com/blog/identify-your-data-breach-apache-drill">identify data breach</a>.</li>
+</ul>
+
+<h3 id="toc_23">Work with CSV files</h3>
+
+<p>CSV is a very common format used in Big Data project. Apache Drill allows you to query CSV directly.</p>
+
+<p>In the data folder you have a <code>/data/airport/passenger.csv</code> file.</p>
+
+<p>1- Query CSV File</p>
+
+<pre><code>SELECT *
+FROM dfs.data.`airport/*.csv`</code></pre>
+
+<p>2- Extract &#39;columns&#39; from CSV</p>
+
+<p>CSV lines are viewed as simple string, so you have to extract each columns and cast the value to the proper type.</p>
+
+<pre><code>SELECT
+columns[0] as `DATE`,
+columns[1] as `AIRLINE`,
+CAST(columns[11] AS DOUBLE) as `PASSENGER_COUNT`
+FROM dfs.data.`/airport/*.csv`
+WHERE CAST(columns[11] AS DOUBLE) &lt; 5
+</code></pre>
+
+<p>3- Create a view or table </p>
+
+<p>When you are working with CSV creating view or table will ease a lot the use of the dataset. For example:</p>
+
+<pre><code>CREATE TABLE dfs.tmp.`airport_data` AS
+SELECT
+CAST(SUBSTR(columns[0],1,4) AS INT)  `YEAR`,
+CAST(SUBSTR(columns[0],5,2) AS INT) `MONTH`,
+columns[1] as `AIRLINE`,
+columns[2] as `IATA_CODE`,
+columns[3] as `AIRLINE_2`,
+columns[4] as `IATA_CODE_2`,
+columns[5] as `GEO_SUMMARY`,
+columns[6] as `GEO_REGION`,
+columns[7] as `ACTIVITY_CODE`,
+columns[8] as `PRICE_CODE`,
+columns[9] as `TERMINAL`,
+columns[10] as `BOARDING_AREA`,
+CAST(columns[11] AS DOUBLE) as `PASSENGER_COUNT`
+FROM dfs.data.`airport/passenger.csv`</code></pre>
+
+<p>and use this table:</p>
+
+<pre><code>SELECT *
+FROM dfs.tmp.`airport_data`</code></pre>
+
+<h3 id="toc_24">Working with Files</h3>
+
+<h4 id="toc_25">Looking in File System</h4>
+
+<p>Apache Drill provide many interesting tools to discover data stored on the file system and query the data.</p>
+
+<pre><code>use dfs.data;
+
+show files;
+
+show files in logs;
+</code></pre>
+
+<h4 id="toc_26">Querying File System</h4>
+
+<p>Drill will automatically navigate in sub directories to find files; and it will use the extension/format to parse the files.</p>
+
+<p>It is very common to use a directory structure to partition the data. For example in the context of a log structure, you can organize the data per year/month.</p>
+
+<pre><code>logs
+├── 2014
+│   ├── 1
+│   ├── 2
+│   ├── 3
+│   └── 4
+└── 2015
+    └── 1</code></pre>
+
+<p>You can query the data as follow:</p>
+
+<p>Total number of lines in all directories</p>
+
+<pre><code>SELECT count(1)
+FROM dfs.data.`logs/*`</code></pre>
+
+<p>Total number of lines for 2014</p>
+
+<pre><code>SELECT count(1)
+FROM dfs.data.`logs/*`
+WHERE dir0 = 2014</code></pre>
+
+<p>Count the number of lines per year</p>
+
+<pre><code>SELECT dir0, count(1)
+FROM dfs.data.`logs/*`
+GROUP BY dir0</code></pre>
+
+<p>If you want to get the number of lines per year and only for the first quarter?</p>
+
+<pre><code>SELECT dir0, count(1)
+FROM dfs.data.`logs/*`
+WHERE dir1 in (1,2,3)
+GROUP BY dir0</code></pre>
+
+<h2 id="toc_27">Conclusion</h2>
+
+<p>In this hands-on you have learned the basics of Apache Drill using simple files (JSON, CSV, Parquet) and Database (MongoDB) on a local installation.</p>
+
+<p>Apache Drill can be deployed in a distributed environment, and allow you to query large and distributed data set for example in HDFS, MapR-FS, Hive, HBase, MapR-DB.</p>
+
+<p>Drill is an extensible platform, developer can <a href="https://drill.apache.org/docs/develop-custom-functions/">create custom functions</a>, add new format, and new storage plugins. It is a very good opportunity <a href="https://drill.apache.org/docs/apache-drill-contribution-ideas/">to contribute to Drill</a>.</p>
+
+<p>If you want to learn more about Apache Drill you can register for the free online training available at:</p>
+
+<ul>
+<li><a href="http://learn.mapr.com">http://learn.mapr.com</a></li>
+</ul>
+
+
+</body>
+
+</html>
