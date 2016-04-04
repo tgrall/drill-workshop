@@ -304,503 +304,504 @@ sup {
 </style>
 </head>
 <body>
-<h1 id="toc_0">Drilling into data with Drill</h1>
 
-<h3 id="toc_1">Prerequisites:</h3>
+	<h1 id="toc_0">Drilling into data with Drill</h1>
 
-<ul>
-<li>Java 7 or newer</li>
-<li>Download and unzip <a href="http://drill.apache.org">Apache Drill</a></li>
-<li><a href="https://www.mongodb.org/downloads">MongoDB 3.x</a></li>
-<li>Unzip the data.zip (from this repository)</li>
-</ul>
+	<h3 id="toc_1">Prerequisites:</h3>
 
-<h2 id="toc_2">Drilling!</h2>
+	<ul>
+	<li>Java 7 or newer</li>
+	<li>Download and unzip <a href="http://drill.apache.org">Apache Drill</a></li>
+	<li><a href="https://www.mongodb.org/downloads">MongoDB 3.x</a></li>
+	<li>Unzip the data.zip (from this repository)</li>
+	</ul>
 
-<h4 id="toc_3">Start Apache Drill</h4>
+	<h2 id="toc_2">Drilling!</h2>
 
-<p>In this lab you will use Apache Drill in a stand alone mode.</p>
+	<h4 id="toc_3">Start Apache Drill</h4>
 
-<p>Let&#39;s call the directory where you have unzipped Apache Drill <code>$DRILL_HOME</code></p>
+	<p>In this lab you will use Apache Drill in a stand alone mode.</p>
 
-<pre><code>cd $DRILL_HOME
+	<p>Let&#39;s call the directory where you have unzipped Apache Drill <code>$DRILL_HOME</code></p>
 
-# Linux/OSX
-bin/drill-embedded
+	<pre><code>cd $DRILL_HOME
 
-# Windows
-bin/sqlline -u jdbc:drill:zk=local
-</code></pre>
+	# Linux/OSX
+	bin/drill-embedded
 
-<p>You can now execute a simple query:</p>
+	# Windows
+	bin/sqlline -u jdbc:drill:zk=local
+	</code></pre>
 
-<pre><code>SELECT * FROM cp.`employee.json` LIMIT 20;
+	<p>You can now execute a simple query:</p>
 
-+--------------+------------------+-------------+------------+--------------+---------------------+-----------+----------------+-------------+------------------------+----------+----------------+------------------+-----------------+---------+--------------------+
-| employee_id  |    full_name     | first_name  | last_name  | position_id  |   position_title    | store_id  | department_id  | birth_date  |       hire_date        |  salary  | supervisor_id  | education_level  | marital_status  | gender  |  management_role   |
-+--------------+------------------+-------------+------------+--------------+---------------------+-----------+----------------+-------------+------------------------+----------+----------------+------------------+-----------------+---------+--------------------+
-| 1            | Sheri Nowmer     | Sheri       | Nowmer     | 1            | President           | 0         | 1              | 1961-08-26  | 1994-12-01 00:00:00.0  | 80000.0  | 0              | Graduate Degree  | S               | F       | Senior Management  |
-| 2            | Derrick Whelply  | Derrick     | Whelply    | 2            | VP Country Manager  | 0         | 1              | 1915-07-03  | 1994-12-01 00:00:00.0  | 40000.0  | 1              | Graduate Degree  | M               | M       | Senior Management  |
-| 4            | Michael Spence   | Michael     | Spence     | 2            | VP Country Manager  | 0         | 1              | 1969-06-20  | 1998-01-01 00:00:00.0  | 40000.0  | 1              | Graduate Degree  | S               | M       | Senior Management  |
-...
-...</code></pre>
+	<pre><code>SELECT * FROM cp.`employee.json` LIMIT 20;
 
-<p>You can select the output format of the shell using:</p>
+	+--------------+------------------+-------------+------------+--------------+---------------------+-----------+----------------+-------------+------------------------+----------+----------------+------------------+-----------------+---------+--------------------+
+	| employee_id  |    full_name     | first_name  | last_name  | position_id  |   position_title    | store_id  | department_id  | birth_date  |       hire_date        |  salary  | supervisor_id  | education_level  | marital_status  | gender  |  management_role   |
+	+--------------+------------------+-------------+------------+--------------+---------------------+-----------+----------------+-------------+------------------------+----------+----------------+------------------+-----------------+---------+--------------------+
+	| 1            | Sheri Nowmer     | Sheri       | Nowmer     | 1            | President           | 0         | 1              | 1961-08-26  | 1994-12-01 00:00:00.0  | 80000.0  | 0              | Graduate Degree  | S               | F       | Senior Management  |
+	| 2            | Derrick Whelply  | Derrick     | Whelply    | 2            | VP Country Manager  | 0         | 1              | 1915-07-03  | 1994-12-01 00:00:00.0  | 40000.0  | 1              | Graduate Degree  | M               | M       | Senior Management  |
+	| 4            | Michael Spence   | Michael     | Spence     | 2            | VP Country Manager  | 0         | 1              | 1969-06-20  | 1998-01-01 00:00:00.0  | 40000.0  | 1              | Graduate Degree  | S               | M       | Senior Management  |
+	...
+	...</code></pre>
 
-<pre><code>!set outputFormat csv
+	<p>You can select the output format of the shell using:</p>
 
-SELECT * FROM cp.`employee.json` LIMIT 20;
+	<pre><code>!set outputFormat csv
 
+	SELECT * FROM cp.`employee.json` LIMIT 20;
 
-!set outputFormat vertical
 
-SELECT * FROM cp.`employee.json` LIMIT 20;
+	!set outputFormat vertical
 
+	SELECT * FROM cp.`employee.json` LIMIT 20;
 
-!set outputFormat table
 
-SELECT * FROM cp.`employee.json` LIMIT 20;
+	!set outputFormat table
 
-</code></pre>
+	SELECT * FROM cp.`employee.json` LIMIT 20;
 
-<p>You can find more information abou the shell <a href="https://drill.apache.org/docs/configuring-the-drill-shell/">here</a>.</p>
+	</code></pre>
 
-<h4 id="toc_4">Apache Drill Web UI</h4>
+	<p>You can find more information abou the shell <a href="https://drill.apache.org/docs/configuring-the-drill-shell/">here</a>.</p>
 
-<p>You can also use the Drill Web Interface to run queries. Go to:</p>
+	<h4 id="toc_4">Apache Drill Web UI</h4>
 
-<ul>
-<li><a href="http://localhost:8047">http://localhost:8047</a></li>
-</ul>
+	<p>You can also use the Drill Web Interface to run queries. Go to:</p>
 
-<p>Go in the Query tab and run another query. (<code>SELECT * FROM cp.`employee.json` LIMIT 20</code>)</p>
+	<ul>
+	<li><a href="http://localhost:8047">http://localhost:8047</a></li>
+	</ul>
 
-<h3 id="toc_5">Configure &quot;Storages&quot;</h3>
+	<p>Go in the Query tab and run another query. (<code>SELECT * FROM cp.`employee.json` LIMIT 20</code>)</p>
 
-<p>Drill allows you to query many datasources: simple file system, distributed file system like HDFS or MapR-FS, cloud storage Amazon S3/Azure but also databases (NoSQL &amp; RDBMS).</p>
+	<h3 id="toc_5">Configure &quot;Storages&quot;</h3>
 
-<p>Let&#39;s create a new workspace to the directory where you have saved the dataset.</p>
+	<p>Drill allows you to query many datasources: simple file system, distributed file system like HDFS or MapR-FS, cloud storage Amazon S3/Azure but also databases (NoSQL &amp; RDBMS).</p>
 
-<ol>
-<li>In the Web UI, go in the <strong>Storage</strong> tab</li>
-<li>Click in the <strong>Update</strong> button for the <strong>dfs</strong> plugin. The dfs plugin is the &quot;file system/distributed file system one</li>
-<li>In the list of workspaces, add one entry to point to the directory where you &quot;datasets&quot; have been saved:</li>
-</ol>
+	<p>Let&#39;s create a new workspace to the directory where you have saved the dataset.</p>
 
-<pre><code>    &quot;reviews&quot;: {
-      &quot;location&quot;: &quot;/Users/tgrall/data/reviews&quot;,
-      &quot;writable&quot;: true,
-      &quot;defaultInputFormat&quot;: null
-    },
-    &quot;data&quot;: {
-      &quot;location&quot;: &quot;/Users/tgrall/data/&quot;,
-      &quot;writable&quot;: true,
-      &quot;defaultInputFormat&quot;: null
-    }</code></pre>
+	<ol>
+	<li>In the Web UI, go in the <strong>Storage</strong> tab</li>
+	<li>Click in the <strong>Update</strong> button for the <strong>dfs</strong> plugin. The dfs plugin is the &quot;file system/distributed file system one</li>
+	<li>In the list of workspaces, add one entry to point to the directory where you &quot;datasets&quot; have been saved:</li>
+	</ol>
 
-<ol>
-<li>Click the <strong>Update</strong> button</li>
-</ol>
+	<pre><code>    &quot;reviews&quot;: {
+	      &quot;location&quot;: &quot;/Users/tgrall/data/reviews&quot;,
+	      &quot;writable&quot;: true,
+	      &quot;defaultInputFormat&quot;: null
+	    },
+	    &quot;data&quot;: {
+	      &quot;location&quot;: &quot;/Users/tgrall/data/&quot;,
+	      &quot;writable&quot;: true,
+	      &quot;defaultInputFormat&quot;: null
+	    }</code></pre>
 
-<p>You can now use the review workspace into your query for example:</p>
+	<ol>
+	<li>Click the <strong>Update</strong> button</li>
+	</ol>
 
-<pre><code>SELECT count(1) AS businesses
-  FROM dfs.reviews.`business.json`</code></pre>
+	<p>You can now use the review workspace into your query for example:</p>
 
-<p>or</p>
+	<pre><code>SELECT count(1) AS businesses
+	  FROM dfs.reviews.`business.json`</code></pre>
 
-<pre><code>SELECT count(1)
-  FROM dfs.data.`airport/*.csv`</code></pre>
+	<p>or</p>
 
-<h3 id="toc_6">Discover Drill</h3>
+	<pre><code>SELECT count(1)
+	  FROM dfs.data.`airport/*.csv`</code></pre>
 
-<p>Apache Drill is an ANSI SQL compliant engine, allowing you to write any type of queries: simple queries, join, aggregation functions, windowing function, ...</p>
+	<h3 id="toc_6">Discover Drill</h3>
 
-<p>See below some examples:</p>
+	<p>Apache Drill is an ANSI SQL compliant engine, allowing you to write any type of queries: simple queries, join, aggregation functions, windowing function, ...</p>
 
-<ul>
-<li>Find reviews of Leslie, and print the business name, text review and rating </li>
-</ul>
+	<p>See below some examples:</p>
 
-<pre><code>SELECT b.name `business`,  r.review_text, r.rating
-FROM dfs.reviews.`review.json` r,
-     dfs.reviews.`business.json` b,
-     dfs.reviews.`user.json` u
-WHERE b.business_id = r.business_id
-AND r.user_id = u.user_id
-AND u.name = &#39;Leslie&#39;
-ORDER BY b.name</code></pre>
+	<ul>
+	<li>Find reviews of Leslie, and print the business name, text review and rating </li>
+	</ul>
 
-<ul>
-<li>The business data contains a rating, print the number of businesses for each rating value.</li>
-</ul>
+	<pre><code>SELECT b.name `business`,  r.review_text, r.rating
+	FROM dfs.reviews.`review.json` r,
+	     dfs.reviews.`business.json` b,
+	     dfs.reviews.`user.json` u
+	WHERE b.business_id = r.business_id
+	AND r.user_id = u.user_id
+	AND u.name = &#39;Leslie&#39;
+	ORDER BY b.name</code></pre>
 
-<pre><code>SELECT rating, count(1) `nb`
-FROM dfs.reviews.`business.json` 
-GROUP BY rating
-ORDER BY rating</code></pre>
+	<ul>
+	<li>The business data contains a rating, print the number of businesses for each rating value.</li>
+	</ul>
 
-<ul>
-<li>Print only the rating that have more than 30000 businesses</li>
-</ul>
+	<pre><code>SELECT rating, count(1) `nb`
+	FROM dfs.reviews.`business.json` 
+	GROUP BY rating
+	ORDER BY rating</code></pre>
 
-<pre><code>
-SELECT rating, count(1) `nb`
-FROM dfs.reviews.`business.json` 
-GROUP BY rating
-HAVING count(1) &gt; 30000
-ORDER BY rating</code></pre>
+	<ul>
+	<li>Print only the rating that have more than 30000 businesses</li>
+	</ul>
 
-<h3 id="toc_7">Query complex Data</h3>
+	<pre><code>
+	SELECT rating, count(1) `nb`
+	FROM dfs.reviews.`business.json` 
+	GROUP BY rating
+	HAVING count(1) &gt; 30000
+	ORDER BY rating</code></pre>
 
-<p>Now you will learn how to query and use complex data structures of your JSON documents.</p>
+	<h3 id="toc_7">Query complex Data</h3>
 
-<p>JSON document are rich structures, for example in the business documents you have:</p>
+	<p>Now you will learn how to query and use complex data structures of your JSON documents.</p>
 
-<ul>
-<li>location: is a sub document</li>
-<li>categories: a list of values (simple string)</li>
-</ul>
+	<p>JSON document are rich structures, for example in the business documents you have:</p>
 
-<h5 id="toc_8">Sub Documents</h5>
+	<ul>
+	<li>location: is a sub document</li>
+	<li>categories: a list of values (simple string)</li>
+	</ul>
 
-<p>To print the <code>zip</code> and <code>state</code> information from the business location you have to use the <em>dot</em> notation, see below</p>
+	<h5 id="toc_8">Sub Documents</h5>
 
-<pre><code>SELECT b.name, b.location.zip `zip`, b.location.state `state`
-FROM dfs.reviews.`business.json` b
-LIMIT 10</code></pre>
+	<p>To print the <code>zip</code> and <code>state</code> information from the business location you have to use the <em>dot</em> notation, see below</p>
 
-<p>Note: when using the <em>dot</em> notation, like <code>b.location.state</code>, Drill considers the first element as the table name, this is why you should add an alias.</p>
+	<pre><code>SELECT b.name, b.location.zip `zip`, b.location.state `state`
+	FROM dfs.reviews.`business.json` b
+	LIMIT 10</code></pre>
 
-<h5 id="toc_9">Arrays/Lists</h5>
+	<p>Note: when using the <em>dot</em> notation, like <code>b.location.state</code>, Drill considers the first element as the table name, this is why you should add an alias.</p>
 
-<p>When you have to work with lists, for example categories in business, you must <strong>flatten</strong> the data, to get one row for each category.</p>
+	<h5 id="toc_9">Arrays/Lists</h5>
 
-<pre><code>SELECT name, flatten(categories) category
-FROM dfs.reviews.`business.json` 
-LIMIT 10</code></pre>
+	<p>When you have to work with lists, for example categories in business, you must <strong>flatten</strong> the data, to get one row for each category.</p>
 
-<p><strong>Questions</strong></p>
+	<pre><code>SELECT name, flatten(categories) category
+	FROM dfs.reviews.`business.json` 
+	LIMIT 10</code></pre>
 
-<ul>
-<li><p>Q1- How many businesses in <code>MO</code> state ?</p></li>
-<li><p>Q2- Count the number of business by state, sorted by the state that has the most businesses ?</p></li>
-<li><p>Q3- Top 5 categories order starting from the most common one <em>(tip: you have to use the <code>flatten</code> function)</em></p></li>
-</ul>
+	<p><strong>Questions</strong></p>
 
-<p><strong>Solutions</strong></p>
+	<ul>
+	<li><p>Q1- How many businesses in <code>MO</code> state ?</p></li>
+	<li><p>Q2- Count the number of business by state, sorted by the state that has the most businesses ?</p></li>
+	<li><p>Q3- Top 5 categories order starting from the most common one <em>(tip: you have to use the <code>flatten</code> function)</em></p></li>
+	</ul>
 
-<blockquote>
-<ul>
-<li>Solution 1</li>
-</ul>
+	<p><strong>Solutions</strong></p>
 
-<pre><code>SELECT count(1) 
-FROM dfs.reviews.`business.json` b
-WHERE b.location.state = &#39;MO&#39;</code></pre>
+	<blockquote>
+	<ul>
+	<li>Solution 1</li>
+	</ul>
 
-<ul>
-<li>Solution 2</li>
-</ul>
+	<pre><code>SELECT count(1) 
+	FROM dfs.reviews.`business.json` b
+	WHERE b.location.state = &#39;MO&#39;</code></pre>
 
-<pre><code>SELECT b.location.state `state`, count(1) `total`
-FROM dfs.reviews.`business.json`  b
-GROUP BY b.location.state
-ORDER BY `total` DESC</code></pre>
+	<ul>
+	<li>Solution 2</li>
+	</ul>
 
-<ul>
-<li>Solution 3</li>
-</ul>
+	<pre><code>SELECT b.location.state `state`, count(1) `total`
+	FROM dfs.reviews.`business.json`  b
+	GROUP BY b.location.state
+	ORDER BY `total` DESC</code></pre>
 
-<pre><code>SELECT category, count(1) `nb_business`
-FROM (
-  SELECT name, flatten(categories) category
-  FROM dfs.reviews.`business.json` 
-)
-GROUP BY category
-ORDER BY `nb_business`
-LIMIT 5</code></pre>
-</blockquote>
+	<ul>
+	<li>Solution 3</li>
+	</ul>
 
-<h3 id="toc_10">Use multiple datasources</h3>
+	<pre><code>SELECT category, count(1) `nb_business`
+	FROM (
+	  SELECT name, flatten(categories) category
+	  FROM dfs.reviews.`business.json` 
+	)
+	GROUP BY category
+	ORDER BY `nb_business`
+	LIMIT 5</code></pre>
+	</blockquote>
 
-<p>In this lab you will use MongoDB to store data and execute SQL queries that join file system and MongoDB data.</p>
+	<h3 id="toc_10">Use multiple datasources</h3>
 
-<p>Let&#39;s call <code>$MONGO_HOME</code> the directory where Mongo is installed.</p>
+	<p>In this lab you will use MongoDB to store data and execute SQL queries that join file system and MongoDB data.</p>
 
-<h4 id="toc_11">Start Mongo &amp; Insert Data</h4>
+	<p>Let&#39;s call <code>$MONGO_HOME</code> the directory where Mongo is installed.</p>
 
-<p>1- Start MongoDB, from a terminal</p>
+	<h4 id="toc_11">Start Mongo &amp; Insert Data</h4>
 
-<pre><code>cd $MONGO_HOME
+	<p>1- Start MongoDB, from a terminal</p>
 
-mkdir data_to_delete
+	<pre><code>cd $MONGO_HOME
 
-./bin/mongod --dbpath ./data_to_delete
-</code></pre>
+	mkdir data_to_delete
 
-<p>2- Import user data into MongoDB</p>
+	./bin/mongod --dbpath ./data_to_delete
+	</code></pre>
 
-<p>In a new terminal window:</p>
+	<p>2- Import user data into MongoDB</p>
 
-<pre><code>./bin/mongoimport  -d drill -c users ~/data/reviews/user.json</code></pre>
+	<p>In a new terminal window:</p>
 
-<p>User data are inserted into the <code>drill</code> database and <code>users</code> collection.</p>
+	<pre><code>./bin/mongoimport  -d drill -c users ~/data/reviews/user.json</code></pre>
 
-<h4 id="toc_12">Enable MongoDB Storage Plugin</h4>
+	<p>User data are inserted into the <code>drill</code> database and <code>users</code> collection.</p>
 
-<ol>
-<li>In the Web UI, go in the <strong>Storage</strong> tab</li>
-<li>Click in the <strong>Update</strong> button for the <strong>mongo</strong> plugin.</li>
-</ol>
+	<h4 id="toc_12">Enable MongoDB Storage Plugin</h4>
 
-<h3 id="toc_13">Query MongoDB from Drill</h3>
+	<ol>
+	<li>In the Web UI, go in the <strong>Storage</strong> tab</li>
+	<li>Click in the <strong>Update</strong> button for the <strong>mongo</strong> plugin.</li>
+	</ol>
 
-<p>You have now the workspace <code>mongo</code> that you can use in your queries.</p>
+	<h3 id="toc_13">Query MongoDB from Drill</h3>
 
-<p>For example to count the number of users:</p>
+	<p>You have now the workspace <code>mongo</code> that you can use in your queries.</p>
 
-<pre><code>select count(1) from mongo.drill.users</code></pre>
+	<p>For example to count the number of users:</p>
 
-<h3 id="toc_14">Join multiple datasources</h3>
+	<pre><code>select count(1) from mongo.drill.users</code></pre>
 
-<p>Q1: Count the number of review per user, show the 10 most active users.</p>
+	<h3 id="toc_14">Join multiple datasources</h3>
 
-<p>Answer 1:</p>
+	<p>Q1: Count the number of review per user, show the 10 most active users.</p>
 
-<pre><code>SELECT r.user_id, u.name, count(1) `nb_reviews`
-FROM dfs.reviews.`review.json` r,
-     mongo.drill.users u
-WHERE u.user_id = r.user_id     
-GROUP BY r.user_id, u.name
-ORDER BY `nb_reviews` DESC
-LIMIT 10 </code></pre>
+	<p>Answer 1:</p>
 
-<h3 id="toc_15">Use view and materialized view</h3>
+	<pre><code>SELECT r.user_id, u.name, count(1) `nb_reviews`
+	FROM dfs.reviews.`review.json` r,
+	     mongo.drill.users u
+	WHERE u.user_id = r.user_id     
+	GROUP BY r.user_id, u.name
+	ORDER BY `nb_reviews` DESC
+	LIMIT 10 </code></pre>
 
-<p>You can use views to protect sensitive data, for data aggregation, and to hide data complexity from users. </p>
+	<h3 id="toc_15">Use view and materialized view</h3>
 
-<p>1- Create a view that exposes business id, name and categories</p>
+	<p>You can use views to protect sensitive data, for data aggregation, and to hide data complexity from users. </p>
 
-<pre><code>CREATE OR REPLACE VIEW dfs.tmp.`business_category` as
-  SELECT business_id, name, flatten(categories) category
-  FROM dfs.reviews.`business.json` 
-</code></pre>
+	<p>1- Create a view that exposes business id, name and categories</p>
 
-<p>2- Use the view to find all bars (category equals &#39;BAR&#39;)</p>
+	<pre><code>CREATE OR REPLACE VIEW dfs.tmp.`business_category` as
+	  SELECT business_id, name, flatten(categories) category
+	  FROM dfs.reviews.`business.json` 
+	</code></pre>
 
-<pre><code>SELECT *
-FROM dfs.tmp.`business_category`
-WHERE category = &#39;Bar&#39;
-LIMIT 10</code></pre>
+	<p>2- Use the view to find all bars (category equals &#39;BAR&#39;)</p>
 
-<p>View does not store any data, it is storing the query and executes the query each time you call the view.</p>
+	<pre><code>SELECT *
+	FROM dfs.tmp.`business_category`
+	WHERE category = &#39;Bar&#39;
+	LIMIT 10</code></pre>
 
-<h4 id="toc_16">Materialized View (Table)</h4>
+	<p>View does not store any data, it is storing the query and executes the query each time you call the view.</p>
 
-<p>Apache Drill allows you to create &#39;table&#39; from a query. In this case the result of the query will be saved in <em>new files</em>. By default the new table will be saved as Parquet files (optimized compressed, columnar oriented format), but it is also possible to save the data as JSON or CSV file.</p>
+	<h4 id="toc_16">Materialized View (Table)</h4>
 
-<p>For example, reviews is a large dataset, and we want to improve query performance. Using a <code>create table as</code> command and Parquet format query execution will be faster.</p>
+	<p>Apache Drill allows you to create &#39;table&#39; from a query. In this case the result of the query will be saved in <em>new files</em>. By default the new table will be saved as Parquet files (optimized compressed, columnar oriented format), but it is also possible to save the data as JSON or CSV file.</p>
 
-<p>1- Create Table, as parquet file</p>
+	<p>For example, reviews is a large dataset, and we want to improve query performance. Using a <code>create table as</code> command and Parquet format query execution will be faster.</p>
 
-<pre><code>CREATE TABLE dfs.tmp.`review_table`
- AS SELECT * FROM dfs.reviews.`review.json`</code></pre>
+	<p>1- Create Table, as parquet file</p>
 
-<p>2- Use the Table</p>
+	<pre><code>CREATE TABLE dfs.tmp.`review_table`
+	 AS SELECT * FROM dfs.reviews.`review.json`</code></pre>
 
-<pre><code>SELECT user_id, count(1) `nb`
-FROM dfs.tmp.`review_table`
-GROUP BY user_id
-ORDER BY count(1) DESC
-LIMIT 10</code></pre>
+	<p>2- Use the Table</p>
 
-<h4 id="toc_17">Views/Table Considerations</h4>
+	<pre><code>SELECT user_id, count(1) `nb`
+	FROM dfs.tmp.`review_table`
+	GROUP BY user_id
+	ORDER BY count(1) DESC
+	LIMIT 10</code></pre>
 
-<p>Views and Tables help people to reuse complex queries. When you create a view or a table you also define a &quot;schema&quot; ( the projection ), this is useful when you are working with JDBC/ODBC tools that will consume this data.</p>
+	<h4 id="toc_17">Views/Table Considerations</h4>
 
-<p>Creating a view is often the first step you have to do to expose Drill to 3rd party tools that need schemas.</p>
+	<p>Views and Tables help people to reuse complex queries. When you create a view or a table you also define a &quot;schema&quot; ( the projection ), this is useful when you are working with JDBC/ODBC tools that will consume this data.</p>
 
-<p>This is also how you can secure data access controling who can access a specific objects.</p>
+	<p>Creating a view is often the first step you have to do to expose Drill to 3rd party tools that need schemas.</p>
 
-<h4 id="toc_18">Listing objects</h4>
+	<p>This is also how you can secure data access controling who can access a specific objects.</p>
 
-<p>You can look at the views/and table using the following commands in sqlline/terminal:</p>
+	<h4 id="toc_18">Listing objects</h4>
 
-<pre><code>show schemas;
+	<p>You can look at the views/and table using the following commands in sqlline/terminal:</p>
 
-use dfs.tmp;
+	<pre><code>show schemas;
 
-show tables;
-</code></pre>
+	use dfs.tmp;
 
-<p>You can also use the command:</p>
+	show tables;
+	</code></pre>
 
-<pre><code>!tables</code></pre>
+	<p>You can also use the command:</p>
 
-<h3 id="toc_19">Custom Function (UDF)</h3>
+	<pre><code>!tables</code></pre>
 
-<p>Apache Drill has a rich set of function; however you may need for your project very specific business logic. For this you can develop your own function.</p>
+	<h3 id="toc_19">Custom Function (UDF)</h3>
 
-<p>For example, you many need to mask some data when returning them to the user. Drill does not have this function, but you can create it, as documented <a href="https://drill.apache.org/docs/tutorial-develop-a-simple-function/">here</a>.</p>
+	<p>Apache Drill has a rich set of function; however you may need for your project very specific business logic. For this you can develop your own function.</p>
 
-<p>For this lab you do not have to create it, since it is packaged in the student kit.</p>
+	<p>For example, you many need to mask some data when returning them to the user. Drill does not have this function, but you can create it, as documented <a href="https://drill.apache.org/docs/tutorial-develop-a-simple-function/">here</a>.</p>
 
-<h4 id="toc_20">Deploy the function</h4>
+	<p>For this lab you do not have to create it, since it is packaged in the student kit.</p>
 
-<p>Copy the JARs files located in your zip file (<code>/udf/*.jar</code>) into:</p>
+	<h4 id="toc_20">Deploy the function</h4>
 
-<ol>
-<li><code>$DRILL_HOME/jars/3rdparty/</code> </li>
-<li>Restart Drill (type <code>!quit</code> in the Drill shell/sqlline to stop it)</li>
-</ol>
+	<p>Copy the JARs files located in your zip file (<code>/udf/*.jar</code>) into:</p>
 
-<h4 id="toc_21">Use the function in your queries</h4>
+	<ol>
+	<li><code>$DRILL_HOME/jars/3rdparty/</code> </li>
+	<li>Restart Drill (type <code>!quit</code> in the Drill shell/sqlline to stop it)</li>
+	</ol>
 
-<p>The function is now deployed and you can use in your queries, for example:</p>
+	<h4 id="toc_21">Use the function in your queries</h4>
 
-<pre><code>SELECT MASK(first_name, &#39;*&#39;, 3) first_name , 
-           MASK(last_name, &#39;#&#39;, 10) last_name
-FROM cp.`employee.json` LIMIT 2;</code></pre>
+	<p>The function is now deployed and you can use in your queries, for example:</p>
 
-<p>You can now use this into views to hide data, for example:</p>
+	<pre><code>SELECT MASK(first_name, &#39;*&#39;, 3) first_name , 
+	           MASK(last_name, &#39;#&#39;, 10) last_name
+	FROM cp.`employee.json` LIMIT 2;</code></pre>
 
-<pre><code>CREATE OR REPLACE VIEW dfs.tmp.`masked_emp` AS
-    SELECT MASK(first_name, &#39;*&#39;, 3) first_name , 
-           MASK(last_name, &#39;#&#39;, 10) last_name,
-           salary
-   FROM cp.`employee.json`</code></pre>
+	<p>You can now use this into views to hide data, for example:</p>
 
-<p>And use it:</p>
+	<pre><code>CREATE OR REPLACE VIEW dfs.tmp.`masked_emp` AS
+	    SELECT MASK(first_name, &#39;*&#39;, 3) first_name , 
+	           MASK(last_name, &#39;#&#39;, 10) last_name,
+	           salary
+	   FROM cp.`employee.json`</code></pre>
 
-<pre><code>SELECT *
-FROM dfs.tmp.`masked_emp`
-WHERE first = &#39;Sheri&#39;</code></pre>
+	<p>And use it:</p>
 
-<h4 id="toc_22">Identify Your Data Breach with Apache Drill</h4>
+	<pre><code>SELECT *
+	FROM dfs.tmp.`masked_emp`
+	WHERE first = &#39;Sheri&#39;</code></pre>
 
-<p>In this article and sample code you will see how you can use custom function to:</p>
+	<h4 id="toc_22">Identify Your Data Breach with Apache Drill</h4>
 
-<ul>
-<li><a href="https://www.mapr.com/blog/identify-your-data-breach-apache-drill">identify data breach</a>.</li>
-</ul>
+	<p>In this article and sample code you will see how you can use custom function to:</p>
 
-<h3 id="toc_23">Work with CSV files</h3>
+	<ul>
+	<li><a href="https://www.mapr.com/blog/identify-your-data-breach-apache-drill">identify data breach</a>.</li>
+	</ul>
 
-<p>CSV is a very common format used in Big Data project. Apache Drill allows you to query CSV directly.</p>
+	<h3 id="toc_23">Work with CSV files</h3>
 
-<p>In the data folder you have a <code>/data/airport/passenger.csv</code> file.</p>
+	<p>CSV is a very common format used in Big Data project. Apache Drill allows you to query CSV directly.</p>
 
-<p>1- Query CSV File</p>
+	<p>In the data folder you have a <code>/data/airport/passenger.csv</code> file.</p>
 
-<pre><code>SELECT *
-FROM dfs.data.`airport/*.csv`</code></pre>
+	<p>1- Query CSV File</p>
 
-<p>2- Extract &#39;columns&#39; from CSV</p>
+	<pre><code>SELECT *
+	FROM dfs.data.`airport/*.csv`</code></pre>
 
-<p>CSV lines are viewed as simple string, so you have to extract each columns and cast the value to the proper type.</p>
+	<p>2- Extract &#39;columns&#39; from CSV</p>
 
-<pre><code>SELECT
-columns[0] as `DATE`,
-columns[1] as `AIRLINE`,
-CAST(columns[11] AS DOUBLE) as `PASSENGER_COUNT`
-FROM dfs.data.`/airport/*.csv`
-WHERE CAST(columns[11] AS DOUBLE) &lt; 5
-</code></pre>
+	<p>CSV lines are viewed as simple string, so you have to extract each columns and cast the value to the proper type.</p>
 
-<p>3- Create a view or table </p>
+	<pre><code>SELECT
+	columns[0] as `DATE`,
+	columns[1] as `AIRLINE`,
+	CAST(columns[11] AS DOUBLE) as `PASSENGER_COUNT`
+	FROM dfs.data.`/airport/*.csv`
+	WHERE CAST(columns[11] AS DOUBLE) &lt; 5
+	</code></pre>
 
-<p>When you are working with CSV creating view or table will ease a lot the use of the dataset. For example:</p>
+	<p>3- Create a view or table </p>
 
-<pre><code>CREATE TABLE dfs.tmp.`airport_data` AS
-SELECT
-CAST(SUBSTR(columns[0],1,4) AS INT)  `YEAR`,
-CAST(SUBSTR(columns[0],5,2) AS INT) `MONTH`,
-columns[1] as `AIRLINE`,
-columns[2] as `IATA_CODE`,
-columns[3] as `AIRLINE_2`,
-columns[4] as `IATA_CODE_2`,
-columns[5] as `GEO_SUMMARY`,
-columns[6] as `GEO_REGION`,
-columns[7] as `ACTIVITY_CODE`,
-columns[8] as `PRICE_CODE`,
-columns[9] as `TERMINAL`,
-columns[10] as `BOARDING_AREA`,
-CAST(columns[11] AS DOUBLE) as `PASSENGER_COUNT`
-FROM dfs.data.`airport/passenger.csv`</code></pre>
+	<p>When you are working with CSV creating view or table will ease a lot the use of the dataset. For example:</p>
 
-<p>and use this table:</p>
+	<pre><code>CREATE TABLE dfs.tmp.`airport_data` AS
+	SELECT
+	CAST(SUBSTR(columns[0],1,4) AS INT)  `YEAR`,
+	CAST(SUBSTR(columns[0],5,2) AS INT) `MONTH`,
+	columns[1] as `AIRLINE`,
+	columns[2] as `IATA_CODE`,
+	columns[3] as `AIRLINE_2`,
+	columns[4] as `IATA_CODE_2`,
+	columns[5] as `GEO_SUMMARY`,
+	columns[6] as `GEO_REGION`,
+	columns[7] as `ACTIVITY_CODE`,
+	columns[8] as `PRICE_CODE`,
+	columns[9] as `TERMINAL`,
+	columns[10] as `BOARDING_AREA`,
+	CAST(columns[11] AS DOUBLE) as `PASSENGER_COUNT`
+	FROM dfs.data.`airport/passenger.csv`</code></pre>
 
-<pre><code>SELECT *
-FROM dfs.tmp.`airport_data`</code></pre>
+	<p>and use this table:</p>
 
-<h3 id="toc_24">Working with Files</h3>
+	<pre><code>SELECT *
+	FROM dfs.tmp.`airport_data`</code></pre>
 
-<h4 id="toc_25">Looking in File System</h4>
+	<h3 id="toc_24">Working with Files</h3>
 
-<p>Apache Drill provide many interesting tools to discover data stored on the file system and query the data.</p>
+	<h4 id="toc_25">Looking in File System</h4>
 
-<pre><code>use dfs.data;
+	<p>Apache Drill provide many interesting tools to discover data stored on the file system and query the data.</p>
 
-show files;
+	<pre><code>use dfs.data;
 
-show files in logs;
-</code></pre>
+	show files;
 
-<h4 id="toc_26">Querying File System</h4>
+	show files in logs;
+	</code></pre>
 
-<p>Drill will automatically navigate in sub directories to find files; and it will use the extension/format to parse the files.</p>
+	<h4 id="toc_26">Querying File System</h4>
 
-<p>It is very common to use a directory structure to partition the data. For example in the context of a log structure, you can organize the data per year/month.</p>
+	<p>Drill will automatically navigate in sub directories to find files; and it will use the extension/format to parse the files.</p>
 
-<pre><code>logs
-├── 2014
-│   ├── 1
-│   ├── 2
-│   ├── 3
-│   └── 4
-└── 2015
-    └── 1</code></pre>
+	<p>It is very common to use a directory structure to partition the data. For example in the context of a log structure, you can organize the data per year/month.</p>
 
-<p>You can query the data as follow:</p>
+	<pre><code>logs
+	├── 2014
+	│   ├── 1
+	│   ├── 2
+	│   ├── 3
+	│   └── 4
+	└── 2015
+	    └── 1</code></pre>
 
-<p>Total number of lines in all directories</p>
+	<p>You can query the data as follow:</p>
 
-<pre><code>SELECT count(1)
-FROM dfs.data.`logs/*`</code></pre>
+	<p>Total number of lines in all directories</p>
 
-<p>Total number of lines for 2014</p>
+	<pre><code>SELECT count(1)
+	FROM dfs.data.`/logs/`;</code></pre>
 
-<pre><code>SELECT count(1)
-FROM dfs.data.`logs/*`
-WHERE dir0 = 2014</code></pre>
+	<p>Total number of lines for 2014</p>
 
-<p>Count the number of lines per year</p>
+	<pre><code>SELECT count(1)
+	FROM dfs.data.`/logs/`
+	WHERE dir0 = 2014;</code></pre>
 
-<pre><code>SELECT dir0, count(1)
-FROM dfs.data.`logs/*`
-GROUP BY dir0</code></pre>
+	<p>Count the number of lines per year</p>
 
-<p>If you want to get the number of lines per year and only for the first quarter?</p>
+	<pre><code>SELECT dir0, count(1)
+	FROM dfs.data.`/logs/`
+	GROUP BY dir0;</code></pre>
 
-<pre><code>SELECT dir0, count(1)
-FROM dfs.data.`logs/*`
-WHERE dir1 in (1,2,3)
-GROUP BY dir0</code></pre>
+	<p>If you want to get the number of lines per year and only for the first quarter?</p>
 
-<h2 id="toc_27">Conclusion</h2>
+	<pre><code>SELECT dir0, count(1)
+	FROM dfs.data.`/logs/`
+	WHERE dir1 in (1,2,3)
+	GROUP BY dir0;</code></pre>
 
-<p>In this hands-on you have learned the basics of Apache Drill using simple files (JSON, CSV, Parquet) and Database (MongoDB) on a local installation.</p>
+	<h2 id="toc_27">Conclusion</h2>
 
-<p>Apache Drill can be deployed in a distributed environment, and allow you to query large and distributed data set for example in HDFS, MapR-FS, Hive, HBase, MapR-DB.</p>
+	<p>In this hands-on you have learned the basics of Apache Drill using simple files (JSON, CSV, Parquet) and Database (MongoDB) on a local installation.</p>
 
-<p>Drill is an extensible platform, developer can <a href="https://drill.apache.org/docs/develop-custom-functions/">create custom functions</a>, add new format, and new storage plugins. It is a very good opportunity <a href="https://drill.apache.org/docs/apache-drill-contribution-ideas/">to contribute to Drill</a>.</p>
+	<p>Apache Drill can be deployed in a distributed environment, and allow you to query large and distributed data set for example in HDFS, MapR-FS, Hive, HBase, MapR-DB.</p>
 
-<p>If you want to learn more about Apache Drill you can register for the free online training available at:</p>
+	<p>Drill is an extensible platform, developer can <a href="https://drill.apache.org/docs/develop-custom-functions/">create custom functions</a>, add new format, and new storage plugins. It is a very good opportunity <a href="https://drill.apache.org/docs/apache-drill-contribution-ideas/">to contribute to Drill</a>.</p>
 
-<ul>
-<li><a href="http://learn.mapr.com">http://learn.mapr.com</a></li>
-</ul>
+	<p>If you want to learn more about Apache Drill you can register for the free online training available at:</p>
+
+	<ul>
+	<li><a href="http://learn.mapr.com">http://learn.mapr.com</a></li>
+	</ul>
 
 
 </body>

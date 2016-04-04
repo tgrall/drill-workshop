@@ -516,15 +516,15 @@ Total number of lines in all directories
 
 ```
 SELECT count(1)
-FROM dfs.data.`logs/*`
+FROM dfs.data.`/logs/`;
 ```
 
 Total number of lines for 2014
 
 ```
 SELECT count(1)
-FROM dfs.data.`logs/*`
-WHERE dir0 = 2014
+FROM dfs.data.`/logs/`
+WHERE dir0 = 2014;
 ```
 
 
@@ -532,17 +532,17 @@ Count the number of lines per year
 
 ```
 SELECT dir0, count(1)
-FROM dfs.data.`logs/*`
-GROUP BY dir0
+FROM dfs.data.`/logs/`
+GROUP BY dir0;
 ```
 
 If you want to get the number of lines per year and only for the first quarter?
 
 ```
 SELECT dir0, count(1)
-FROM dfs.data.`logs/*`
+FROM dfs.data.`/logs/`
 WHERE dir1 in (1,2,3)
-GROUP BY dir0
+GROUP BY dir0;
 ```
 
 
